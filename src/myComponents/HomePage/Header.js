@@ -6,25 +6,21 @@ export default function Header() {
     return (
         <>
             <nav className="mainNav flex items-center justify-between">
-                <ul className="navbar flex items-center justify-around w-96 ml-8">
-                    <li className="navItem">
+                <ul className="navbar flex items-stretch justify-around w-96 ml-8">
+                    <li className="navItem hover:shadow-lg flex items-center">
                         <Link to='/'>
-                            <img src={logo} alt="logo" className="h-16" />
+                            <img src={logo} alt="logo" className="h-14" />
                         </Link>
                     </li>
-                    <li className="navItem">
-                        <Link to='/about'>About</Link>
+                    <li className="navItem hover:shadow-lg flex items-center">
+                        <Link to='/about' className="p-6">About</Link>
                     </li>
-                    <li className="navItem">
-                        <Link to='/login'>Login</Link>
+                    <li className="navItem hover:shadow-lg flex items-center">
+                        <Link to='/login' className="p-6">Login</Link>
                     </li>
-                    <li className="navItem">
-                        <Link to='/register'>Signup</Link>
+                    <li className="navItem hover:shadow-lg flex items-center">
+                        <Link to='/register' className="p-6">Signup</Link>
                     </li>
-                </ul>
-                <ul className="rightNav flex">
-                    <li className="navItem"></li>
-                    <li className="navItem"></li>
                 </ul>
             </nav>
         </>
