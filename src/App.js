@@ -1,5 +1,4 @@
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import './App.css';
 import Hero from './myComponents/HomePage/Hero';
 
 function App() {
