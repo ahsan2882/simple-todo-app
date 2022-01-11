@@ -1,7 +1,7 @@
 import React from 'react'
 import Hero from './Hero'
 
-export default function () {
+export default function Home() {
     return (
         <>
             <Hero/>
