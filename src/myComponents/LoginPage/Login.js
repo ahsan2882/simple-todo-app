@@ -1,22 +1,23 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import formPic from '../../assets/img/login.jpg';
 import { useNavigate } from 'react-router-dom';
+import { setAuthState } from '../../App';
 
 export default function Login() {
+    const setAuth = useContext(setAuthState)
     const [email, setemail] = useState("");
     const [password, setPassword] = useState("");
     let navigate = useNavigate();
-    const [auth, setauth] = useState(false);
     const userEmail = "ahsan@gmail.com";
     const userPass = "password123";
     const submitForm = (e) => {
         e.preventDefault();
         if (email === userEmail && password === userPass) {
-            setauth(true);
-            navigate('/tasks')
+            setAuth(true);
+            navigate('/tasks');
         } else {
-            setauth(false);
             alert("Wrong username or password");
+            setAuth(false);
         }
         console.log(email, password);
     }
