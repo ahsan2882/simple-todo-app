@@ -1,5 +1,5 @@
 import React from 'react';
-import Header from './Header';
+import Header from '../CommonElements/Header';
 import HeroCss from './Hero.module.css';
 import heroImg from '../../assets/img/heroImg.jpg'
 
