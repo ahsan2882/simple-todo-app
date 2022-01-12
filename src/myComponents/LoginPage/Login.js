@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import { setAuthState } from '../../App';
 
 export default function Login() {
-    const setAuth = useContext(setAuthState)
+    const setAuth = useContext(setAuthState);
     const [email, setemail] = useState("");
     const [password, setPassword] = useState("");
     let navigate = useNavigate();
