@@ -36,21 +36,21 @@ export default function Login() {
     }
     return (
         <>
-            <section className="wrapper w-full h-screen flex items-center bg-indigo-500">
-                <section className="formSec max-w-6xl w-full mx-auto py-12 bg-white rounded-2xl flex items-center justify-around">
-                    <section className="leftSec w-5/12">
+            <section className="w-full h-screen flex items-center bg-indigo-500">
+                <section className="max-w-6xl w-full mx-auto py-12 bg-white rounded-2xl flex items-center justify-around">
+                    <section className="w-5/12">
                         <img src={formPic} alt="formPicture" className='w-full'/>
                     </section>
-                    <section className="rightSec w-5/12 flex flex-col items-start justify-around">
+                    <section className="w-5/12 flex flex-col items-start justify-around">
                         <form className='flex flex-col items-start justify-around w-full' onSubmit={submitForm}>
                             <h1 className='self-center text-2xl mb-8'>LOGIN</h1>
-                            <div className="emailInput flex flex-col my-4 w-full border-b-2 border-black rounded-b-md">
+                            <div className="flex flex-col my-4 w-full border-b-2 border-black rounded-b-md">
                                 <label htmlFor="email">Email: </label>
                                 <input type="email" name="email" id="email" autoComplete="off" value={email} onChange={(e) => setemail(e.target.value)} required placeholder='user@gmail.com' className='outline-none px-4 py-3 w-11/12'/>
                             </div>
-                            <div className="passInput flex flex-col my-4 w-full border-b-2 border-black rounded-b-md">
+                            <div className="flex flex-col my-4 w-full border-b-2 border-black rounded-b-md">
                                 <label htmlFor="password">Password: </label>
-                                <div className="inputPass flex items-center justify-between">
+                                <div className="flex items-center justify-between">
                                     <input type="password" name="password" autoComplete="off" value={password} onChange={(e) => setPassword(e.target.value)} required id="password" placeholder='Password' className='outline-none px-4 py-3 w-11/12' />
                                     <i className="fa fa-eye mr-3 showPass" onClick={showPassword}></i>
                                 </div>
