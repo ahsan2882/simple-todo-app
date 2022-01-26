@@ -1,78 +1,78 @@
 let todoItems = [
     {
         "title": "Todo Item 1",
-        "urgency": "low",
         "starred": false,
-        "status": "In Progress"
+        "status": "In Progress",
+        "dateAdded": 16421312104265
     },
     {
         "title": "Todo Item 2",
-        "urgency": "high",
         "starred": true,
-        "status": "Done"
+        "status": "Done",
+        "dateAdded": 16421315104265
     },
     {
         "title": "Todo Item 3",
-        "urgency": "low",
         "starred": false,
-        "status": "In Progress"
+        "status": "In Progress",
+        "dateAdded": 16321312104265
     },
     {
         "title": "Todo Item 4",
-        "urgency": "medium",
         "starred": true,
-        "status": "In Progress"
+        "status": "In Progress",
+        "dateAdded": 16421387104265
     },
     {
         "title": "Todo Item 5",
-        "urgency": "high",
         "starred": false,
-        "status": "Done"
+        "status": "Done",
+        "dateAdded": 16421312112345
     }
 ]
 const sortArray = (array) => {
     let resArray = [];
     let inProg = array.filter(item => item.status === "In Progress");
-    let starredInProg = inProg.filter(item => item.starred === true);
-    starredInProg.filter(item => item.urgency === "high").forEach(element => {
+    inProg.filter(item => item.starred === true).sort(function (a,b) {
+        if (a.dateAdded > b.dateAdded) {
+            return 1;
+        } else if (a.dateAdded < b.dateAdded) {
+            return -1;
+        }
+        return 0;
+    }).forEach(element => {
         resArray.push(element)
     });
-    starredInProg.filter(item => item.urgency === "medium").forEach(element => {
-        resArray.push(element)
-    });
-    starredInProg.filter(item => item.urgency === "low").forEach(element => {
-        resArray.push(element)
-    });
-    let unstarredInProg = inProg.filter(item => item.starred === false);
-    unstarredInProg.filter(item => item.urgency === "high").forEach(element => {
-        resArray.push(element)
-    });
-    unstarredInProg.filter(item => item.urgency === "medium").forEach(element => {
-        resArray.push(element)
-    });
-    unstarredInProg.filter(item => item.urgency === "low").forEach(element => {
+    inProg.filter(item => item.starred === false).sort(function (a, b) {
+        if (a.dateAdded > b.dateAdded) {
+            return 1;
+        } else if (a.dateAdded < b.dateAdded) {
+            return -1;
+        }
+        return 0;
+    }).forEach(element => {
         resArray.push(element)
     });
 
     let compl = array.filter(item => item.status === "Done");
-    let starredCompl = compl.filter(item => item.starred === true);
-    starredCompl.filter(item => item.urgency === "high").forEach(element => {
+    compl.filter(item => item.starred === true).sort(function (a, b) {
+        if (a.dateAdded > b.dateAdded) {
+            return 1;
+        } else if (a.dateAdded < b.dateAdded) {
+            return -1;
+        }
+        return 0;
+    }).forEach(element => {
         resArray.push(element)
     });
-    starredCompl.filter(item => item.urgency === "medium").forEach(element => {
-        resArray.push(element)
-    });
-    starredCompl.filter(item => item.urgency === "low").forEach(element => {
-        resArray.push(element)
-    });
-    let unstarredCompl = compl.filter(item => item.starred === false);
-    unstarredCompl.filter(item => item.urgency === "high").forEach(element => {
-        resArray.push(element)
-    });
-    unstarredCompl.filter(item => item.urgency === "medium").forEach(element => {
-        resArray.push(element)
-    });
-    unstarredCompl.filter(item => item.urgency === "low").forEach(element => {
+    compl.filter(item => item.starred === false).sort(function (a, b) {
+        if (a.dateAdded > b.dateAdded) {
+            return 1;
+        } else if (a.dateAdded < b.dateAdded) {
+            return -1;
+        }
+        return 0;
+    }).forEach(element => {
         resArray.push(element)
     });
     return resArray;
