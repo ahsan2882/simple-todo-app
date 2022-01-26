@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import todoItems, { sortArray } from './TodoItems';
 
 export default function TasksList() {
@@ -11,6 +11,13 @@ export default function TasksList() {
     const toggleStarTask = (ind) => {
         let arr = [...todoArray];
         arr[ind].starred = !arr[ind].starred;
+        setTodoArray(sortArray(arr));
+    }
+    const completeTask = (ind) => {
+        let arr = [...todoArray];
+        if (arr[ind].status === "In Progress") {
+            arr[ind].status = "Done";
+        }
         setTodoArray(sortArray(arr));
     }
     return (
@@ -28,8 +35,7 @@ export default function TasksList() {
                                     <h1 className='ml-2'>{item.title}</h1>
                                 </div>
                                 <div className='flex items-center justify-evenly w-36'>
-                                    <i className={item.urgency === "high" ? "fas fa-exclamation-triangle text-red-600" : (item.urgency === "medium" ? "fas fa-exclamation-triangle text-orange-500" : "fas fa-exclamation-triangle text-transparent")}></i>
-                                    <button><i className={item.status === "In Progress" ? "far fa-check-circle" : "fas fa-check-circle text-green-600"}></i></button>
+                                    <button onClick={() => completeTask(index)}><i className={item.status === "In Progress" ? "far fa-check-circle" : "fas fa-check-circle text-green-600"}></i></button>
                                     <button onClick={() => toggleStarTask(index)}><i className={item.starred ? "fas fa-star text-yellow-400" : "far fa-star"}></i></button>
                                     <button onClick={() => deleteTask(index)}><i className="far fa-trash-alt text-red-600"></i></button>
                                 </div>
